@@ -28,12 +28,9 @@ for obj in a:
     size_x = obj['size']['x']
     size_y = obj['size']['y']
 
-    for x in range(init_x, init_x + size_x - 1):
-        for y in range(init_y, init_y + size_y - 1):
+    for x in range(init_x, init_x + size_x):
+        for y in range(init_y, init_y + size_y):
             grid[x][y] += 1
-
-tainted_count = 0
-tainted_list = set()
 
 def check(obj, grid):
     init_x = obj['pos']['x']
@@ -41,22 +38,25 @@ def check(obj, grid):
     size_x = obj['size']['x']
     size_y = obj['size']['y']
 
-    for x in range(init_x, init_x + size_x - 1):
-        for y in range(init_y, init_y + size_y - 1):
+    for x in range(init_x, init_x + size_x):
+        for y in range(init_y, init_y + size_y):
             if grid[x][y] > 1:
                 return True
     
     return False
 
+tainted_number = 0
+for x in range(0, grid_size):
+    for y in range(0, grid_size):
+        if grid[x][y] > 1:
+            tainted_number += 1
+print(tainted_number)
 
 for obj in a:
     o = check(obj, grid)
-    if o == True:
-        tainted_count += 1
-        # tainted_list.add(obj)
+    if o == False:
+        print(obj)
 
-for i in grid:
-    print (i)
-# print(tainted_count)
-# print(tainted_list)
+# for i in grid:
+    # print (i)
 
