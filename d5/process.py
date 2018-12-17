@@ -2,72 +2,43 @@ import sys
 
 sys.setrecursionlimit(10000)
 
-with open('d5/input.test.txt') as f:
+with open('d5/input.txt') as f:
   input = f.read()
+  # print('input', input)
 
-# print(input)
-
-
-def process_rec2(text):
-  # print('process', text)
+def process_rec(text, c = 0):
+  # print('process ' + str(c), text)
 
   found = False
   for i in range(0, len(text)):
     if i >= len(text) - 1:
       break
     
-    # print(text[i], text[i+1], ' ', end='|')
-    # print(text[i])
     if text[i].upper() == text[i + 1].upper() and text[i] != text[i + 1]:
       found = True
       new_text =  text[:i] + text[i+2:]
       text = new_text
   
   if found:
-    return process_rec2(text)
+    return process_rec(text, c + 1)
   
   return text
 
 
-def process_rec(text):
-  # print('process', text)
+# new_text = process_rec(input)
+# print(len(new_text))
 
-  i = 0
-  new_text = ''
-  while i < len(text) - 1:
-    if not (text[i].upper() == text[i + 1].upper() and text[i] != text[i + 1]):
-      new_text += text[i]
-    
-    i += 1
-  
-  if text != new_text:
-    return process_rec(new_text)
-  
-  return new_text
-      
-def process_loop(text):
-  found = True
+letters = set()
+for letter in input:
+  letters.add(letter.lower())
 
-  while found == True:
-    found = False
-    for i in range(0, len(text)):
-      if i > len(text) - 1:
-        break
-      
-      print(text[i])
-      # print(text[i], text[i+1], ' ', end='|')
-      # if text[i].upper() == text[i + 1].upper() and text[i] != text[i + 1]:
-      #   found = True
-      #   new_text =  text[:i] + text[i+2:]
-      #   text = new_text
+print(str(letters))
 
-  return text
-  
+letters_length = {}
+for letter in letters:
+  new_input = input.replace(letter.lower(), '').replace(letter.upper(), '')
+  length = len(process_rec(new_input))
+  letters_length[letter] = length
+  print(letter, length)
 
-
-new_text = process_rec(input)
-
-# new_text = process_loop(input)
-
-print(new_text, len(new_text))
-print(len(new_text))
+print(str(letters_length)) # b -> 6918
