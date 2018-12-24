@@ -1,5 +1,8 @@
-# input = 71
+input = 18
 input = 8444
+
+import sys
+print (sys.argv)
 
 debug = False
 grid = []
@@ -23,6 +26,12 @@ max_y = 0
 max_x = 0
 max_s = 0
 
+# for y in range(89, 89 + 16):
+#   for x in range(268, 268 + 16):
+#     print(str(grid[y][x]).ljust(2,' ')+'|', end='')
+#   print('')
+
+
 # part 1
 # for y in range(0, 298):
 #   for x in range(0, 298):
@@ -38,25 +47,21 @@ max_s = 0
 
 # part 2
 for y in range(0, 298):
-  print('y', y)
+# for y in range(260, 300):
+  print('y', y, 'total', max_total, max_x + 1, max_y + 1, max_s)
   for x in range(0, 298):
+  # for x in range(0, 298):
     m = x if x > y else y
     for s in range(2, 300 - m):
-      total = grid[y][x]
-      for i in  range(0, 300 - m - s):
-        total += grid[y][x + i] + grid[y + i][x] + grid[y + i][x + i]
-        if total >= max_total:
-          max_total = total
-          max_x = x
-          max_y = y
-          max_s = s
+    # for s in range(2, 300 - m):
+      total = 0
+      for s_y in  range(y, y + s):
+        for s_x in  range(x, x + s):
+          total += grid[s_y][s_x]
+      if total >= max_total:
+        max_total = total
+        max_x = x
+        max_y = y
+        max_s = s
 
-print(max_total, max_x + 1, max_y + 1, s)
-# y 291
-# y 292
-# y 293
-# y 294
-# y 295
-# y 296
-# y 297
-# 334 190 74
+# y 297 total 96 236 252 12 <- right answer. Ran ^^ "in parallel"
