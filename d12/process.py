@@ -31,28 +31,45 @@ rules = [parse_rule(i) for i in input[2:]]
 print('init',initial_state)
 for i in rules: print(i)
 
-for i in range(0, 1):
-  state, zero_pos = change_state(initial_state, zero_pos)
+state = initial_state
+for tick in range(0, 1):
+  state, zero_pos = change_state(state, zero_pos)
   temp_state = state
 
-  print(state, zero_pos)
-  for i in range(0 - zero_pos, len(state)):
+  for i in range(0 - zero_pos, len(state)- zero_pos):
     print(str(i)[-1], end='')
   print()
-  
+  print(state, tick, zero_pos)
+  # print()
   # last_rule = -1
   for rule in rules:
-    idx = temp_state.find(rule['input'])
-    while idx != -1:
-    # idx = state.find(rule['input'])
-    # if (idx >= 0):
-      last_rule = idx
-      print(idx + 1, rule['input'], temp_state)
-      temp_state = temp_state[0: idx] + rule['output'] + temp_state[idx + 5:]
-      idx = temp_state.find(rule['input'])
+    # approach 2  
+    print(state, tick, zero_pos, rule['input'])
 
-      # temp_state
-    # break
-  print(temp_state, zero_pos)
+    # state = state.replace(rule['input'], rule['output'])
+    idx = state.find(rule['input'])
+    state = state[0: idx + 2] + rule['r'] + state[idx + 4:]
+
+
+  # approach 1
+  #   # idx = temp_state.find(rule['input'])
+  #   idx = state.find(rule['input'])
+  #   last_idx = idx
+
+  #   while idx != -1:
+  #     last_rule = idx
+  #     # print(idx + 1, rule['input'], temp_state)
+  #     state = state[0: idx] + rule['output'] + state[idx + 5:]
+  #     idx = state.find(rule['input'], last_idx + len(rule['input']))
+  #     # print(idx + 1, rule['input'], temp_state)
+  #     # temp_state = temp_state[0: idx] + rule['output'] + temp_state[idx + 5:]
+  #     # idx = temp_state.find(rule['input'], last_idx + len(rule['input']))
+  #     last_idx = idx
+
+  #     # temp_state
+  #   # break
+  # # print(temp_state, zero_pos)
+  # # state = temp_state
+  print(state, 'final')
 
 
