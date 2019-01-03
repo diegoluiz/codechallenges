@@ -34,7 +34,7 @@ print('init',initial_state)
 for i in rules: print(i)
 
 state = initial_state
-for tick in range(0, 3):
+for tick in range(0, 20):
   state, zero_pos = change_state(state, zero_pos)
   temp_state = state
   for pos in range(0, len(state)):
@@ -60,4 +60,10 @@ for tick in range(0, 3):
 print()
 print('final', state)
 
+total = 0
 
+for p in range(0, len(state)):
+  if state[p] == '#':
+    total += (p - zero_pos)
+
+print ('total', total)
