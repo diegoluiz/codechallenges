@@ -34,40 +34,30 @@ print('init',initial_state)
 for i in rules: print(i)
 
 state = initial_state
-for tick in range(0, 1):
+for tick in range(0, 3):
   state, zero_pos = change_state(state, zero_pos)
   temp_state = state
+  for pos in range(0, len(state)):
+    current_pos = state[pos: pos + 5]
+    # print(temp_state, pos, current_pos)
+    # print('b', state[0: pos + 3])
+    # print('a', state[pos + 4:])
+    # print('current_pos', current_pos)
+    current_rule = rules_set.get(current_pos)
+    if current_rule is not None:
+      # print('handle there is')
+      temp_state = temp_state[0: pos + 2] + current_rule + temp_state[pos + 3:]
+    else:
+      # print('handle not found (just for the tests)')
+      # print('b', state[0: pos + 2])
+      # print('a', state[pos + 3:])
+      temp_state = temp_state[0: pos + 2] + '.' + temp_state[pos + 3:]
 
-  # for i in range(0 - zero_pos, len(state)- zero_pos):
-  #   print(str(i)[-1], end='')
-  # print()
-  for i in range(0, len(state)):
-    print(str(i)[-1], end='')
-  print()
-  print(state, tick, zero_pos)
-  
-  for rule in rules:
-    idx = state.find(rule['input'])
-    last_idx = 0
+    # print(state, pos)
+  state = temp_state
+  print(tick + 1,':', state, zero_pos)
 
-    state = state.replace(rule['input'], rule['output'])
-    # if idx == -1:
-    #   state = state[0: idx + 3] + '.' + state[idx + 4:]
-    #   continue
-
-    # while idx != -1:
-    #   print(state, rule['input'], idx, state[idx: idx+5])
-    #   state = state[0: idx + 3] + rule['r'] + state[idx + 4:]
-    #   idx = state.find(rule['input'], last_idx + len(rule['input']))
-    #   # print(idx + 1, rule['input'], temp_state)
-    #   # temp_state = temp_state[0: idx] + rule['output'] + temp_state[idx + 5:]
-    #   # idx = temp_state.find(rule['input'], last_idx + len(rule['input']))
-    #   last_idx = idx
-
-  #     # temp_state
-  #   # break
-  # # print(temp_state, zero_pos)
-  # # state = temp_state
-  print(state, 'final')
+print()
+print('final', state)
 
 
