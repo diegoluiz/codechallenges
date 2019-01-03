@@ -65,10 +65,12 @@ After 20 generations, what is the sum of the numbers of all pots which contain a
 
 Your puzzle answer was 2444.
 
-The first half of this puzzle is complete! It provides one gold star: *
-
-
 --- Part Two ---
 You realize that 20 generations aren't enough. After all, these plants will need to last another 1500 years to even reach your timeline, not to mention your future.
 
 After fifty billion (50000000000) generations, what is the sum of the numbers of all pots which contain a plant?
+
+Your puzzle answer was 750000000697.
+
+Both parts of this puzzle are complete! They provide two gold stars: **
+
