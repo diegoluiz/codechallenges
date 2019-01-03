@@ -1,5 +1,5 @@
 file = 'd12/input.test.txt'
-# file = 'd12/input.txt'
+file = 'd12/input.txt'
 
 
 def parse_rule(i):
@@ -10,13 +10,20 @@ def parse_rule(i):
   return {'input': i, 'output': o, 'r': x[1]}
 
 def change_state(state, zero_pos):
-  for i in range(5):
-    if state[i] == '#':
-      state = '.' + state
-      zero_pos += 1
+  # for i in range(5):
+  #   if state[i] == '#':
+  #     state = '.' + state
+  #     zero_pos += 1
 
-    if state[0 - i - 1] == '#':
-      state = state + '.'
+  print(state[0:5])
+
+  if state[0:5] != '.....':
+    state = '.....' + state
+    zero_pos += 5
+
+  if state[-5:] != '.....':
+    print('bla')
+    state = state + '.....'
 
   return state, zero_pos
 
