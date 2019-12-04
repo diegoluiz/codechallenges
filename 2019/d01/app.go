@@ -23,9 +23,9 @@ func main() {
 		totalFuel += fuel
 		totalFuel += fuelForFuel
 	}
-	fmt.Printf("p1\n")
+	fmt.Printf("p1: ")
 	fmt.Println(totalModulesFuel)
-	fmt.Printf("\np2\n")
+	fmt.Printf("\np2: ")
 	fmt.Println(totalFuel)
 }
 
