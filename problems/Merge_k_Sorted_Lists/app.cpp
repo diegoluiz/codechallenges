@@ -11,52 +11,47 @@ struct ListNode
     ListNode(int x) : val(x), next(NULL) {}
 };
 
-ListNode *merge(ListNode *list1, ListNode *list2)
-{
-    ListNode *output = new ListNode(INT_MIN);
-    ListNode *outputHead = output;
-
-    while (list1 != nullptr || list2 != nullptr)
-    {
-        int val = 0;
-        if (list2 == nullptr)
-        {
-            val = list1->val;
-            list1 = list1->next;
-        }
-        else if (list1 == nullptr)
-        {
-            val = list2->val;
-            list2 = list2->next;
-        }
-        else if (list1->val < list2->val)
-        {
-            val = list1->val;
-            list1 = list1->next;
-        }
-        else
-        {
-            val = list2->val;
-            list2 = list2->next;
-        }
-
-        output->next = new ListNode(val);
-        output = output->next;
-    }
-
-    return outputHead->next;
-}
-
 ListNode *mergeKLists(vector<ListNode *> &lists)
 {
     ListNode *resHead = nullptr;
     ListNode *res = nullptr;
 
-    for (int i = 0; i < lists.size(); i++)
+    while (true)
     {
-        res = merge(res, lists[i]);
+        int minIndex = INT_MIN;
+        int currMin = INT_MAX;
+        bool allEmpty = true;
+
+        for (int i = 0; i < lists.size(); i++)
+        {
+            ListNode *item = lists[i];
+            if (item != nullptr && item->val < currMin)
+            {
+                minIndex = i;
+                currMin = item->val;
+                allEmpty = false;
+            }
+        }
+
+        if (allEmpty)
+        {
+            break;
+        }
+
+        if (res == nullptr)
+        {
+            res = new ListNode(lists[minIndex]->val);
+            resHead = res;
+        }
+        else
+        {
+            res->next = new ListNode(lists[minIndex]->val);
+            res = res->next;
+        }
+        lists[minIndex] = lists[minIndex]->next;
     }
-    return res;
+
+    return resHead;
 }
 
 int main()
