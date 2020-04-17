@@ -16,91 +16,18 @@ class Solution
 public:
     bool checkValidString(string s)
     {
-        bool newOpened = true;
-        bool currentOpened = true;
+        int ini = 0;
+        int fin = 0;
 
-        stack<int> opened, closed;
-        stack<int> wildcard;
-
-        int openCloseIdx = s.find("()");
-        while (openCloseIdx >= 0)
+        for (char c : s)
         {
-            s.erase(openCloseIdx, 2);
-            openCloseIdx = s.find("()");
+            ini += c == '(' ? 1 : -1;
+            fin += c != ')' ? 1 : -1;
+            if (fin < 0) return false;
+            ini = max(ini, 0);
         }
 
-        for (int i = 0; i < s.size(); i++)
-        {
-            char character = s[i];
-            if (character == '(')
-            {
-                newOpened = true;
-                opened.push(i);
-            }
-            else if (character == '*')
-            {
-                wildcard.push(i);
-            }
-            else if (character == ')')
-            {
-                newOpened = false;
-                closed.push(i);
-            }
-
-            if (currentOpened != newOpened)
-            {
-                if (!currentOpened)
-                {
-                    int tempOpened = opened.top();
-                    opened.pop();
-
-                    int ini = INT_MIN;
-
-                    while (!closed.empty() && (!opened.empty() || !wildcard.empty()))
-                    {
-                        closed.pop();
-                        if (opened.empty())
-                        {
-                            ini = wildcard.top();
-                            wildcard.pop();
-                        }
-                        else
-                        {
-                            ini = opened.top();
-                            opened.pop();
-                        }
-                    }
-
-                    if (!closed.empty())
-                    {
-                        return false;
-                    }
-
-                    opened.push(tempOpened);
-                }
-
-                currentOpened = newOpened;
-            }
-        }
-
-        while (!closed.empty() && (!opened.empty() || !wildcard.empty()))
-        {
-            closed.pop();
-            opened.empty() ? wildcard.pop() : opened.pop();
-        }
-
-        while (!opened.empty() && !wildcard.empty())
-        {
-            if (opened.top() > wildcard.top())
-            {
-                wildcard.pop();
-                continue;
-            }
-            opened.pop();
-            wildcard.pop();
-        }
-
-        return closed.empty() && opened.empty();
+        return ini == 0;
     }
 };
 
