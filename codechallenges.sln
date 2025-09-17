@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "leetcode", "leetcode", "{549475A6-F52A-4CAD-8A3A-02FC1CED5641}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "30-days-code-challenge", "30-days-code-challenge", "{B19DF636-B202-4EFB-A84C-3CEE8CF20EDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2020-04", "2020-04", "{15AC6276-BAC6-4AF4-A30F-0E76FBDA7FFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "day-01", "leetcode\30-days-code-challenge\2020-04\day-01\day-01.csproj", "{44A79EEE-5729-436C-AC67-560A0C3CE124}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "day-02", "leetcode\30-days-code-challenge\2020-04\day-02\day-02.csproj", "{3D4DB086-A525-4943-B57A-9441645988B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hackerrank", "hackerrank", "{6F300C9D-16D4-415B-8F08-5958EECC8E04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "practice", "practice", "{BFD1FA5F-1490-42C5-ABC2-3E65B82986C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "algorithms", "algorithms", "{D92E7CEA-192A-4BA7-91D5-982516275174}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "implementation", "implementation", "{4FD4826C-4FA4-42C7-9367-4DF9B2FB8648}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "magic-square-forming", "hackerrank\practice\algorithms\implementation\magic-square-forming\magic-square-forming.csproj", "{096C47F0-F016-47BF-A0D0-927F491F0C31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44A79EEE-5729-436C-AC67-560A0C3CE124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A79EEE-5729-436C-AC67-560A0C3CE124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A79EEE-5729-436C-AC67-560A0C3CE124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A79EEE-5729-436C-AC67-560A0C3CE124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D4DB086-A525-4943-B57A-9441645988B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4DB086-A525-4943-B57A-9441645988B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4DB086-A525-4943-B57A-9441645988B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4DB086-A525-4943-B57A-9441645988B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{096C47F0-F016-47BF-A0D0-927F491F0C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096C47F0-F016-47BF-A0D0-927F491F0C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096C47F0-F016-47BF-A0D0-927F491F0C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096C47F0-F016-47BF-A0D0-927F491F0C31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B19DF636-B202-4EFB-A84C-3CEE8CF20EDC} = {549475A6-F52A-4CAD-8A3A-02FC1CED5641}
+		{15AC6276-BAC6-4AF4-A30F-0E76FBDA7FFA} = {B19DF636-B202-4EFB-A84C-3CEE8CF20EDC}
+		{44A79EEE-5729-436C-AC67-560A0C3CE124} = {15AC6276-BAC6-4AF4-A30F-0E76FBDA7FFA}
+		{3D4DB086-A525-4943-B57A-9441645988B5} = {15AC6276-BAC6-4AF4-A30F-0E76FBDA7FFA}
+		{BFD1FA5F-1490-42C5-ABC2-3E65B82986C3} = {6F300C9D-16D4-415B-8F08-5958EECC8E04}
+		{D92E7CEA-192A-4BA7-91D5-982516275174} = {BFD1FA5F-1490-42C5-ABC2-3E65B82986C3}
+		{4FD4826C-4FA4-42C7-9367-4DF9B2FB8648} = {D92E7CEA-192A-4BA7-91D5-982516275174}
+		{096C47F0-F016-47BF-A0D0-927F491F0C31} = {4FD4826C-4FA4-42C7-9367-4DF9B2FB8648}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E557E53E-0E24-4D8E-9589-B78D033AA775}
+	EndGlobalSection
+EndGlobal
